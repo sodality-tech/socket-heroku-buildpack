@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+
+echo "Original Procfile:"
+cat $BUILD_DIR/Procfile
+
+cat > $BUILD_DIR/Procfile <<EOF
+web: yarn socket
+release: yarn migrate
+EOF
+
+echo "Modified Procfile:"
+cat $BUILD_DIR/Procfile
